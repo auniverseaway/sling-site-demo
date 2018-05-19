@@ -9,15 +9,19 @@
     }
 
     .Header--container {
-        min-height: 280px;
         justify-content: space-between;
+        @media (min-width: 48em) {
+            min-height: 280px;
+        }
     }
 
-    .Header--logoContainer {
+    .Cell.Pad.Header--logoContainer {
         justify-content: center;
+        padding: 0;
 
         @media (min-width: 48em) {
             justify-content: flex-start;
+            padding: 1em;
         }
     }
 
@@ -33,13 +37,15 @@
         }
     }
 
-    .Header--subTitleContainer {
+    .Cell.Pad.Header--subTitleContainer {
         justify-content: center;
         text-align: center;
+        padding: 0;
 
         @media (min-width: 48em) {
             justify-content: flex-end;
             text-align: left;
+            padding: 1em;
         }
     }
 
