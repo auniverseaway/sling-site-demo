@@ -1,0 +1,31 @@
+h1, h2, h3, h4, h5, h6 {
+    line-height: normal;
+    font-weight: 300;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+a {
+    color: #00678C;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+code {
+    font-family: 'Source Code Pro', 'Courier';
+    font-weight: 300;
+    color: black;
+    font-size: 16px;
+}
+
+.Text {
+    &.Text--small {
+        font-size: .8em;
+        line-height: 2em;
+    }
+}
