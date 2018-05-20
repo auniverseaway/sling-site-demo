@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Apache Sling - Beanstalk Plugin Property Reference</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link href="/libs/css/highlightjs/github.css" rel="stylesheet"/>
+    <link href="/dist/css/index.css" rel="stylesheet">
+</head>
+<body>
+<div class="SlingRule"></div><header class="Header--documentation Grid Align-Center Fit-Medium">
+    <div class="Header--container container">
+        <div class="sling-logo"></div>
+        <h1>Beanstalk Plugin Property Reference</h1>
+    </div>
+</header>
+<div class="page-container">
+    <p><a href="index.html"> back to top </a></p> 
+<h3><a href="#properties-available-to-all-mojos" id="properties-available-to-all-mojos">Properties Available to All Mojos</a></h3> 
+<ul> 
+ <li><code>beanstalker.region</code>: AWS Region to Use e.g. <code>sa-east-1</code> (default: <code>us-east-1</code>)</li> 
+ <li><code>beanstalker.serverId</code>: Server Id e.g. <code>myaccount</code> (see <a href="aws-config.html">AWS Configuration</a>)</li> 
+</ul> 
+<h3><a href="#environment-related-properties" id="environment-related-properties">Environment Related Properties</a></h3> 
+<p>Here's a quick rundown on the most critical environment properties (<a href="http://beanstalker.ingenieux.com.br/beanstalk-maven-plugin/create-environment-mojo.html">create-environment</a>, <a href="http://beanstalker.ingenieux.com.br/beanstalk-maven-plugin/create-environment-mojo.html">put-environment</a>, <a href="http://beanstalker.ingenieux.com.br/beanstalk-maven-plugin/create-environment-mojo.html">update-environment</a>, and <a href="http://beanstalker.ingenieux.com.br/beanstalk-maven-plugin/create-environment-mojo.html">replace-environment</a>:</p> 
+<ul> 
+ <li><code>beanstalk.cnamePrefix</code>: cnamePrefix of the environment (sans the <code>.elasticbeanstalk.com</code>)</li> 
+ <li><code>beanstalk.environmentName</code>: Environment Name</li> 
+ <li><code>beanstalk.solutionStack</code>: Solution Stack e.g. <code>64bit Amazon Linux running Tomcat 7</code></li> 
+</ul> 
+<h4><a href="#configuration-option-settings" id="configuration-option-settings">Configuration Option Settings:</a></h4> 
+<p>Most of those exist given their common occurrence <em>OR</em> the existence of Spaces, making it difficult to map as an ordinary AWS Configuration Option Name. In general, they're mapped as 'beanstalk.env.aws.namespace.something.then.OptionName', but those below are aliased:</p> 
+<ul> 
+ <li><code>beanstalk.keyName</code>: EC2 Key Name to use (aws:autoscaling:launchconfiguration/EC2KeyName)</li> 
+ <li><code>beanstalk.applicationHealthCheckURL</code>: Health Check URL e.g. <code>/services/api/v1/health/check</code> (aws:elasticbeanstalk:application/Application Health Check URL)</li> 
+ <li><code>beanstalk.automaticallyTerminateUnhealthyInstances</code>: Automatically Terminate Unhealthy Instances (aws:elasticbeanstalk:monitoring/Automatically Terminate Unhealthy Instances)</li> 
+ <li><code>beanstalk.iamInstanceProfile</code>: IAM Instance Profile Role Name (aws:autoscaling:launchconfiguration/IAMInstanceProfile)</li> 
+ <li><code>beanstalk.instanceType</code>: EC2 Instance Type e.g. <code>m1.small</code> (aws:autoscaling:launchconfiguration/InstanceType)</li> 
+ <li><code>beanstalk.environmentType</code>: Set to <code>SingleInstance</code> to use Single Instance instead of ELB (aws:elasticbeanstalk:environment/EnvironmentType)</li> 
+ <li><code>beanstalk.imageId</code>: Image Id to Use e.g. <code>ami-95baf4fc</code> (aws:autoscaling:launchconfiguration/Image Id)</li> 
+ <li><code>beanstalk.securityGroups</code>: Security Groups of the Auto Scaling Group e.g. <code>default, page-service</code>" (aws:autoscaling:launchconfiguration/SecurityGroups)</li> 
+ <li><code>beanstalk.stickinessPolicy</code>: Cookie Stickiness Policy (aws:elb:policies/Stickiness Policy)</li> 
+ <li><code>beanstalk.stickinessCookieExpiration</code>: Cookie Expiration (aws:elb:policies/Stickiness Cookie Expiration)</li> 
+ <li><code>beanstalk.availabilityZones</code>: Custom Availability Zones eg. <code>us-east-1b, us-east-1d</code> (aws:autoscaling:asg/Custom Availability Zones)</li> 
+ <li><code>beanstalk.notificationProtocol</code>: Notification Protocol eg. <code>e-mail</code> (aws:elasticbeanstalk:sns:topics/Notification Protocol)</li> 
+</ul> 
+<p>For more details, see (Option Values)[http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html] in the Development Guide</p> 
+<h3><a href="#system-properties" id="system-properties">System Properties</a></h3> 
+<ul> 
+ <li><code>beanstalk.env.aws.elasticbeanstalk.application.environment.X</code>: System Property <code>X</code></li> 
+</ul> 
+<p>See <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Java.managing.html">Using Custom Environment Properties with AWS Elastic Beanstalk</a> for more detail. It is also possible to set them from the cli using beanstalk:set-property mojo:</p> 
+<pre><code>$ mvn beanstalk:set-property -Dbeanstalk.envName=X -Dbeanstalk.envValue=Y
+</code></pre> 
+<h3><a href="#big-todo" id="big-todo">Big TODO</a></h3> 
+<p>Completely map Option Values, which means:</p> 
+<ul> 
+ <li>aws:autoscaling:asg: 
+  <ul> 
+   <li>Availability Zones</li> 
+   <li>MinSize</li> 
+   <li>MaxSize</li> 
+  </ul> </li> 
+ <li>MonitoringInterval</li> 
+ <li>aws:autoscaling:launchconfiguration: 
+  <ul> 
+   <li>SSHSourceRestriction</li> 
+   <li>BlockDeviceMappings</li> 
+  </ul> </li> 
+ <li>aws:elasticbeanstalk:sns:topics: 
+  <ul> 
+   <li>Notification Endpoint</li> 
+   <li>Notification Topic ARN</li> 
+   <li>Notification Topic Name</li> 
+  </ul> </li> 
+ <li>aws:elasticbeanstalk:container:tomcat:jvmoptions: 
+  <ul> 
+   <li>JVM Options</li> 
+   <li>Xmx</li> 
+   <li>XX:MaxPermSize</li> 
+   <li>Xms</li> 
+  </ul> </li> 
+ <li>aws:elasticbeanstalk:container:tomcat:jvmoptions</li> 
+ <li>aws:elasticbeanstalk:hostmanager: 
+  <ul> 
+   <li>LogPublicationControl</li> 
+  </ul> </li> 
+</ul> 
+<h3><a href="#finding-settings-for-a-particular-mojo" id="finding-settings-for-a-particular-mojo">Finding Settings for a Particular Mojo</a></h3> 
+<ul> 
+ <li>See the <a href="http://beanstalker.ingenieux.com.br/beanstalk-maven-plugin/plugin-info.html">Plugin Doc Page</a> for more details</li> 
+ <li>Or use <code>mvn beanstalk:help -Ddetail [-Dgoal=&lt;goal&gt;]</code></li> 
+</ul> 
+<h3><a href="#references" id="references">References:</a></h3> 
+<ul> 
+ <li>The <a href="http://beanstalker.ingenieux.com.br/beanstalk-maven-plugin/xref/br/com/ingenieux/mojo/beanstalk/AbstractNeedsEnvironmentMojo.html">AbstractNeedsEnvironmentMojo</a> contains the aliases between the property name and Elastic Beanstalk Configuration Option Settings</li> 
+ <li>See also the (Option Values)[http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html] reference in the <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/">AWS Elastic Beanstalk Developer Guide</a></li> 
+</ul> 
+<h3><a href="#up-next" id="up-next">Up Next</a></h3> 
+<ul> 
+ <li>See the <a href="faq.html">Frequently Asked Questions</a></li> 
+</ul> 
+<p><a href="index.html"> back to top </a></p>
+</div>
+        <footer class="Panel Panel--lightGray Panel--footer">
+            <div class="container">
+                <div class="Grid Fit-Medium Align-Center Gutter">
+                    <div class="Cell Pad Medium-70">
+                        <p class="Text Text--small">Apache Sling, Sling, Apache, the Apache feather logo, and the Apache Sling project logo are trademarks of The Apache Software Foundation. All other marks mentioned may be trademarks or registered trademarks of their respective owners.</p>
+                        <p class="Text Text--small">Copyright © 2011-2017 The Apache Software Foundation.</p>
+                    </div>
+                    <div class="Cell Pad">
+                        <img src="/img/asf-logo.svg" alt="Apache Software Foundation"/>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="/libs/js/highlightjs/highlight.pack.js"></script>
+        <script src="/dist/js/index.js"></script>
+    </body>
+</html>

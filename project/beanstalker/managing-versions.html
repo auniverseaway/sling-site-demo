@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Apache Sling - Managing Versions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link href="/libs/css/highlightjs/github.css" rel="stylesheet"/>
+    <link href="/dist/css/index.css" rel="stylesheet">
+</head>
+<body>
+<div class="SlingRule"></div><header class="Header--documentation Grid Align-Center Fit-Medium">
+    <div class="Header--container container">
+        <div class="sling-logo"></div>
+        <h1>Managing Versions</h1>
+    </div>
+</header>
+<div class="page-container">
+    <p><a href="index.html"> back to top </a></p> 
+<h3><a href="#rolling-back-a-version" id="rolling-back-a-version">Rolling Back a Version</a></h3> 
+<p>You can also revert an environment to the previous version:</p> 
+<pre><code>$ mvn beanstalk:rollback-version
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building test-war 0.2.5-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] --- beanstalk-maven-plugin:0.2.5-SNAPSHOT:rollback-version (default-cli)
+@ test-war ---
+[INFO] environmentName / environmentId not defined. Lets try to get one, shall we?
+[INFO] Assigning a environment named default-0
+[INFO] Changing versionLabel for Environment[name=default-0; environmentId=null] from version 20110827080130 to version 20110827075731
+[INFO] SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.543s
+[INFO] Finished at: Sat Aug 27 08:08:59 GMT-03:00 2011
+[INFO] Final Memory: 5M/15M
+[INFO] ------------------------------------------------------------------------
+</code></pre> 
+<h3><a href="#cleaning-up-previous-versions" id="cleaning-up-previous-versions">Cleaning Up Previous Versions</a></h3> 
+<p>As each deploy creates a new version, sometimes it is interesting to cleanup previous versions. Beanstalker does that, via clean-previous-versions.</p> 
+<p>There are two options to pick: daysToKeep or versionsToKeep. Either way, first it simulates the execution.</p> 
+<pre><code>$ mvn beanstalk:clean-previous-versions -Dbeanstalk.versionsToKeep=1
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building test-war 0.2.5-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] --- beanstalk-maven-plugin:0.2.5-SNAPSHOT:clean-previous-versions (default-cli) @ test-war ---
+[WARNING] The POM for org.codehaus.jackson:jackson-core-asl:jar:1.7.0-SNAPSHOT-20101126.221009-1 is missing, no dependency information available
+log4j:WARN No appenders could be found for logger (org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager).
+log4j:WARN Please initialize the log4j system properly.
+[INFO] VersionLabel 20110827080130 is bound to environment default-0 - Skipping
+it
+[INFO] Must delete version: 20110827075312
+[INFO] Deleted 0 versions.
+[INFO] SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.204s
+[INFO] Finished at: Sat Aug 27 08:12:41 GMT-03:00 2011
+[INFO] Final Memory: 5M/15M
+[INFO] ------------------------------------------------------------------------
+</code></pre> 
+<p>In order to actually delete the version, supply dryRun as false:</p> 
+<pre><code>$ mvn beanstalk:clean-previous-versions -Dbeanstalk.versionsToKeep=1 -Dbeanstalk.dryRun=false
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building test-war 0.2.5-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] --- beanstalk-maven-plugin:0.2.5-SNAPSHOT:clean-previous-versions (default-cli) @ test-war ---
+[WARNING] The POM for org.codehaus.jackson:jackson-core-asl:jar:1.7.0-SNAPSHOT-20101126.221009-1 is missing, no dependency information available
+log4j:WARN No appenders could be found for logger (org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager).
+log4j:WARN Please initialize the log4j system properly.
+[INFO] VersionLabel 20110827080130 is bound to environment default-0 - Skipping
+it
+[INFO] Must delete version: 20110827075312
+[INFO] Deleted 1 versions.
+[INFO] SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.249s
+[INFO] Finished at: Sat Aug 27 08:13:31 GMT-03:00 2011
+[INFO] Final Memory: 5M/15M
+[INFO] ------------------------------------------------------------------------
+</code></pre> 
+<h3><a href="#up-next" id="up-next">Up Next</a></h3> 
+<p>See <a href="managing-environments.html">how to manage environments</a></p> 
+<p><a href="index.html"> back to top </a></p>
+</div>
+        <footer class="Panel Panel--lightGray Panel--footer">
+            <div class="container">
+                <div class="Grid Fit-Medium Align-Center Gutter">
+                    <div class="Cell Pad Medium-70">
+                        <p class="Text Text--small">Apache Sling, Sling, Apache, the Apache feather logo, and the Apache Sling project logo are trademarks of The Apache Software Foundation. All other marks mentioned may be trademarks or registered trademarks of their respective owners.</p>
+                        <p class="Text Text--small">Copyright © 2011-2017 The Apache Software Foundation.</p>
+                    </div>
+                    <div class="Cell Pad">
+                        <img src="/img/asf-logo.svg" alt="Apache Software Foundation"/>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="/libs/js/highlightjs/highlight.pack.js"></script>
+        <script src="/dist/js/index.js"></script>
+    </body>
+</html>

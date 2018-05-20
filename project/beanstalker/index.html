@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Apache Sling - ingenieux Beanstalker Docs Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link href="/libs/css/highlightjs/github.css" rel="stylesheet"/>
+    <link href="/dist/css/index.css" rel="stylesheet">
+</head>
+<body>
+<div class="SlingRule"></div><header class="Header--documentation Grid Align-Center Fit-Medium">
+    <div class="Header--container container">
+        <div class="sling-logo"></div>
+        <h1>ingenieux Beanstalker Docs Hub</h1>
+    </div>
+</header>
+<div class="page-container">
+    <p>ingenieux Beanstalker is our set of <a href="http://maven.apache.org/">Apache Maven</a> plugins for <a href="http://aws.amazon.com">Amazon Web Services</a> (AWS), which lets you effectively use Maven to:</p> 
+<ul> 
+ <li>Manage <a href="http://aws.amazon.com/elasticbeanstalk/">AWS Elastic Beanstalk</a> Applications</li> 
+ <li>Integrate your build with SimpleDB, S3 and CloudFront</li> 
+</ul> 
+<h3><a href="#getting-started" id="getting-started">Getting Started</a></h3> 
+<p>In order to effectively use beanstalker, you need to have a basic understanding of <a href="http://maven.apache.org/">Apache Maven</a> and <a href="http://aws.amazon.com/elasticbeanstalk/">AWS Elastic Beanstalk</a>.</p> 
+<h4><a href="#basic-usage" id="basic-usage">Basic Usage</a></h4> 
+<p>Here are the basic beanstalker usage instructions:</p> 
+<ul> 
+ <li><a href="aws-config.html">Configuring your AWS Credentials</a></li> 
+ <li><a href="pom-config.html">Configuring your pom</a> or <a href="using-the-archetype.html">Using the Archetype</a></li> 
+ <li>Deploying your Application, <a href="deploying-using-git.html">using git</a> or <a href="deploying-using-s3.html">using s3</a></li> 
+ <li><a href="managing-versions.html">Managing Versions</a></li> 
+ <li><a href="managing-environments.html">Managing Environments</a></li> 
+ <li><a href="other-services.html">Other Services Features (EC2 and Route53)</a></li> 
+</ul> 
+<h4><a href="#intermediary-level" id="intermediary-level">Intermediary Level</a></h4> 
+<p>Once you've gotten the essentials, you can:</p> 
+<ul> 
+ <li>Manage Environment Configuration</li> 
+ <li>Using AWS Elastic Beanstalk Configuration Files</li> 
+</ul> 
+<h4><a href="#advanced" id="advanced">Advanced</a></h4> 
+<ul> 
+ <li>Zero Downtime Deployments</li> 
+ <li>Using CloudFront</li> 
+ <li>Using SimpleDB</li> 
+</ul> 
+<h3><a href="#reference" id="reference">Reference</a></h3> 
+<p>Use these as reference URLs:</p> 
+<ul> 
+ <li><a href="http://beanstalker.ingenieux.com.br/beanstalk-maven-plugin/plugin-info.html">Mojo Reference</a></li> 
+ <li><a href="http://bitbucket.org/aldrinleal/beanstalker">Source Code Repository</a> 
+  <ul> 
+   <li><a href="http://github.com/ingenieux/beanstalker">GitHub Mirror</a></li> 
+  </ul> </li> 
+ <li><a href="http://github.com/ingenieux/beanstalker/issues">Issue Tracking is Kept on Github</a></li> 
+ <li><a href="http://beanstalker.ingenieux.com.br/beanstalk-maven-plugin/plugin-info.html">Plugin Information (Maven Generated)</a></li> 
+ <li><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html">AWS Elastic Beanstalk Developer Guide</a></li> 
+</ul> 
+<h3><a href="#troubleshooting-beanstalker" id="troubleshooting-beanstalker">Troubleshooting beanstalker</a></h3> 
+<p>See the <a href="troubleshooting.html">troubleshooting page</a> and <a href="faq.html">Frequently Asked Questions</a></p> 
+<h3><a href="#support-beanstalker" id="support-beanstalker">Support Beanstalker</a></h3> 
+<p>beanstalker was created to solve my problems. If you find it useful, see <a href="http://beanstalker.ingenieux.com.br/donate.html">Donate to beanstalker</a></p> 
+<h3><a href="#huge-thanks-goes-to" id="huge-thanks-goes-to">Huge Thanks Goes To</a></h3> 
+<p>Gratitude is best served warm. I'd like to say huge thanks to:</p> 
+<ul> 
+ <li><a href="http://github.com/carrot-garden">Andrei Pozolotin</a>, for being the very first beanstalker user</li> 
+ <li><a href="http://www.bedatadriven.com/">Alexander Bertram from BeDataDriven</a>, for actually making me happy to know that beanstalker is used from a Humanitarial Perspective</li> 
+ <li><a href="http://github.com/yegor256">Yegor Bugayenko</a> for Friendship, Numismatics, replace-environment, CloudFront, and <a href="http://www.jcabi.com/jcabi-beanstalk-maven-plugin/">even some competition</a></li> 
+ <li><a href="https://github.com/marstonstudio/">Jon Marston</a> from <a href="http://www.englishcentral.com/">EnglishCentral</a>, for feedback and catching some heisenbugs</li> 
+ <li><a href="http://mentor.com/">Keith Childers from Mentorgraphics</a>, for general ideas, chitchat and testing</li> 
+ <li><a href="http://www.iamondemand.com">Ofir Nachmani</a> and the folks at <a href="http://newvem.com/">Newvem</a>, for letting me try many wild ideas with beanstalker :)</li> 
+</ul> 
+<p>Besides that, beanstalker development is powered by OSS Licenses offered by:</p> 
+<ul> 
+ <li>Jetbrains, for <a href="http://www.jetbrains.com/idea/">IntelliJ Idea</a></li> 
+ <li><a href="http://bit.ly/18Wa3HK">JRebel</a></li> 
+</ul> 
+<p>As for tools, we're huge fans of:</p> 
+<ul> 
+ <li><a href="http://www.newvem.com/">Newvem</a>, for general advice and AWS Usage Monitoring</li> 
+ <li><a href="https://papertrailapp.com/?thank=cffa7e">Papertrail</a>, for Being Awesome on my Log Collecting</li> 
+ <li><a href="http://copperegg.com/copperegg-signup/pro/?utm_source=00QC000001A3DHFMA3">CopperEgg</a>, ditto, but for Server Metrics</li> 
+</ul>
+</div>
+        <footer class="Panel Panel--lightGray Panel--footer">
+            <div class="container">
+                <div class="Grid Fit-Medium Align-Center Gutter">
+                    <div class="Cell Pad Medium-70">
+                        <p class="Text Text--small">Apache Sling, Sling, Apache, the Apache feather logo, and the Apache Sling project logo are trademarks of The Apache Software Foundation. All other marks mentioned may be trademarks or registered trademarks of their respective owners.</p>
+                        <p class="Text Text--small">Copyright © 2011-2017 The Apache Software Foundation.</p>
+                    </div>
+                    <div class="Cell Pad">
+                        <img src="/img/asf-logo.svg" alt="Apache Software Foundation"/>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="/libs/js/highlightjs/highlight.pack.js"></script>
+        <script src="/dist/js/index.js"></script>
+    </body>
+</html>
