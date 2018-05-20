@@ -514,14 +514,14 @@ a {
   .Header--documentation .sling-logo {
     width: 160px;
     height: 60px;
-    background: url(/../img/sling-logo.svg) no-repeat; }
+    background: url(../img/sling-logo.svg) no-repeat; }
     @media (min-width: 95em) {
       .Header--documentation .sling-logo {
         position: absolute;
         left: -160px;
         width: 160px;
         height: 86px;
-        background: url(/../img/sling-logo.svg) no-repeat;
+        background: url(../img/sling-logo.svg) no-repeat;
         background-size: auto 60px;
         background-position: left center; } }
   .Header--documentation h1 {
