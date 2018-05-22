@@ -415,10 +415,6 @@ h1, h2, h3, h4, h5, h6 {
   line-height: normal;
   font-weight: 300; }
 
-h3 {
-  text-transform: uppercase;
-  font-weight: 600; }
-
 a {
   color: #00678C;
   text-decoration: none; }
@@ -486,6 +482,10 @@ a {
   .News.News--home b, .News.News--involved b {
     display: block; }
 
+.Panel h3 {
+  text-transform: uppercase;
+  font-weight: 600; }
+
 .Panel.Panel--resources h2 {
   margin: 0 1rem; }
 
@@ -508,22 +508,12 @@ a {
     position: relative;
     display: flex;
     align-items: center; }
-    @media (min-width: 95em) {
-      .Header--documentation .Header--container {
-        display: block; } }
   .Header--documentation .sling-logo {
     width: 160px;
     height: 60px;
-    background: url("../../img/sling-logo.svg") no-repeat; }
-    @media (min-width: 95em) {
-      .Header--documentation .sling-logo {
-        position: absolute;
-        left: -160px;
-        width: 160px;
-        height: 86px;
-        background: url("../../img/sling-logo.svg") no-repeat;
-        background-size: auto 60px;
-        background-position: left center; } }
+    background: url("../../img/sling-logo.svg") no-repeat;
+    background-size: auto 60px;
+    background-position: left center; }
   .Header--documentation h1 {
     flex: 1 1 auto; }
     @media (min-width: 75em) {
@@ -532,10 +522,55 @@ a {
 
 .page-container {
   font-weight: 400; }
+  .page-container h1 {
+    font-size: 2.25em;
+    font-weight: 300;
+    line-height: 1.25; }
+  .page-container h2 {
+    font-size: 1.75em;
+    font-weight: 300;
+    line-height: 1.25; }
+  .page-container h3 {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.25; }
+  .page-container h4 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.25; }
+  .page-container h5 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25; }
+  .page-container h6 {
+    font-size: 0.875em;
+    font-weight: 600;
+    line-height: 1.25; }
+  .page-container ul:first-child {
+    font-size: 14px;
+    line-height: 24px;
+    max-width: 100%;
+    margin: 0;
+    background: #FFFBEF;
+    padding: 24px 0;
+    list-style: none; }
+    .page-container ul:first-child li {
+      max-width: 1200px;
+      margin: 0 1rem; }
+      @media (min-width: 75em) {
+        .page-container ul:first-child li {
+          margin: 0 auto; } }
+  .page-container ul:first-child ul {
+    list-style: none;
+    padding: 0 24px; }
   .page-container p, .page-container h1, .page-container h2, .page-container h3, .page-container h4, .page-container h5, .page-container h6, .page-container ul, .page-container ol, .page-container table {
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto; }
+    margin-left: 1rem;
+    margin-right: 1rem; }
+    @media (min-width: 75em) {
+      .page-container p, .page-container h1, .page-container h2, .page-container h3, .page-container h4, .page-container h5, .page-container h6, .page-container ul, .page-container ol, .page-container table {
+        margin-left: auto;
+        margin-right: auto; } }
   .page-container code {
     font-size: 16px; }
   .page-container table {
@@ -558,8 +593,8 @@ a {
       font-weight: 400; }
   .page-container .note {
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 1rem;
+    margin-right: 1rem;
     padding: 4px 12px 4px 32px;
     margin-top: 16px;
     margin-bottom: 16px;
@@ -567,6 +602,10 @@ a {
     background: #ffeaa9;
     position: relative;
     overflow: hidden; }
+    @media (min-width: 75em) {
+      .page-container .note {
+        margin-left: auto;
+        margin-right: auto; } }
     .page-container .note:before {
       display: block;
       content: '';
@@ -616,7 +655,8 @@ pre {
   pre code.hljs {
     font-size: 1rem;
     line-height: 1.8rem;
-    width: 1200px;
+    max-width: 1200px;
+    display: block;
     margin: 0 auto;
     padding: 1em .5em; }
 
